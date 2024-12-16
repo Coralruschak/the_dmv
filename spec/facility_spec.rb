@@ -11,10 +11,15 @@ RSpec.describe Facility do
   describe '#initialize' do
     it 'can initialize' do
       expect(@facility_1).to be_an_instance_of(Facility)
+      expect(@facility_2).to be_an_instance_of(Facility)
       expect(@facility_1.name).to eq('DMV Tremont Branch')
+      expect(@facility_2.name).to eq('DMV Northeast Branch')
       expect(@facility_1.address).to eq('2855 Tremont Place Suite 118 Denver CO 80205')
+      expect(@facility_2.address).to eq('4685 Peoria Street Suite 101 Denver CO 80239')
       expect(@facility_1.phone).to eq('(720) 865-4600')
+      expect(@facility_2.phone).to eq('(720) 865-4600')
       expect(@facility_1.services).to eq([])
+      expect(@facility_2.services).to eq([])
     end
   end
 
