@@ -1,7 +1,8 @@
 require 'date'
 
 class Facility
-  attr_reader :name, :address, :phone, :services
+  
+  attr_reader :name, :address, :phone, :services, :registered_vehicles, :collected_fees
 
   def initialize(facility_info)
     @name = facility_info[:name]
@@ -19,7 +20,7 @@ class Facility
   def register_vehicle(vehicle)
     if @services.include?('Vehicle Registration')
 
-      vehicle.registration_date = Date.today.year
+      vehicle.registration_date = Date.today
       @registered_vehicles << vehicle
 
       #set plate_type
@@ -44,16 +45,3 @@ class Facility
 
 end
 
-Register a vehicle
-  Vehicles have the following rules:
-    Vehicles 25 years old or older are considered antique and cost $25 to register
-    Electric Vehicles (EV) cost $200 to register
-    All other vehicles cost $100 to register
-    A vehicle’s plate_type should be set to :regular, :antique, or :ev upon successful registration.
-Administer a written test
-  A written test can only be administered to registrants with a permit and who are at least 16 years of age
-Administer a road test
-  A road test can only be administered to registrants who have passed the written test
-  For simplicity’s sake, Registrants who qualify for the road test automatically earn a license
-Renew a driver’s license
-  A license can only be renewed if the registrant has already passed the road test and earned a license
